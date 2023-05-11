@@ -5,29 +5,47 @@ import './index.css'
 class ShowHide extends Component {
   state = {
     isFirstNameClicked: false,
-    firstName: 'hide',
+    className1: 'name-block',
+    firstName: 'Joe',
     isLastNameClicked: false,
-    lastName: 'hide',
+    lastName: 'Jonas',
+    className2: 'name-block',
   }
 
   onFirstName = () => {
     const {isFirstNameClicked} = this.state
     if (isFirstNameClicked) {
-      return this.setState({isFirstNameClicked: false, firstName: 'hide'})
+      return this.setState({
+        isFirstNameClicked: false,
+        firstName: null,
+        className1: null,
+      })
     }
-    return this.setState({isFirstNameClicked: true, firstName: 'show'})
+    return this.setState({
+      isFirstNameClicked: true,
+      firstName: 'Joe',
+      className1: 'name-block',
+    })
   }
 
   onLastName = () => {
     const {isLastNameClicked} = this.state
     if (isLastNameClicked) {
-      return this.setState({isLastNameClicked: false, lastName: 'hide'})
+      return this.setState({
+        isLastNameClicked: false,
+        lastName: null,
+        className2: null,
+      })
     }
-    return this.setState({isLastNameClicked: true, lastName: 'show'})
+    return this.setState({
+      isLastNameClicked: true,
+      lastName: 'Jonas',
+      className2: 'name-block',
+    })
   }
 
   render() {
-    const {firstName, lastName} = this.state
+    const {firstName, lastName, className1, className2} = this.state
     return (
       <div className="bg-container">
         <h1>Show/Hide</h1>
@@ -36,13 +54,13 @@ class ShowHide extends Component {
             <button type="button" onClick={this.onFirstName}>
               Show/Hide Firstname
             </button>
-            <p className={firstName}>Joe</p>
+            <p className={className1}>{firstName}</p>
           </div>
           <div className="box">
             <button type="button" onClick={this.onLastName}>
               Show/Hide Lastname
             </button>
-            <p className={lastName}>Jonas</p>
+            <p className={className2}>{lastName}</p>
           </div>
         </div>
       </div>
